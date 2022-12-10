@@ -11,25 +11,25 @@ def getAnswer(question):
         model="text-davinci-003",
         prompt=startQuestion+question,
         temperature=0,
-        max_tokens=60,
+        max_tokens=4000,
         top_p=1,
         frequency_penalty=0,
         presence_penalty=0
     )
 
-    print('response:', response.choices[0].text)
+    # print('response:', response.choices[0].text)
     return response.choices[0].text
 
 
 def handler(request, jsonify):
     # Get the request body
     body = request.get_json()
-    print('body:', body)
+    # print('body:', body)
     
     # Get the question
     try:
         question = body['question']
-        print('question:', question)
+        # print('question:', question)
     except:
         return jsonify({
             'message': 'Question is required'
@@ -44,7 +44,7 @@ def handler(request, jsonify):
     # replace all A: with blank
     answer = answer.replace('A: ', '')
     
-    print('answer:', answer)
+    # print('answer:', answer)
 
     result = {
         'message': 'Success',
