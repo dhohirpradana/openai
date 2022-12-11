@@ -3,7 +3,7 @@ from my_sum import sum
 from openai_question import getAnswer
 
 
-class Test_TestIncrementDecrement(unittest.TestCase):
+class Test_UnitTest(unittest.TestCase):
     def test_increment(self):
         assert 1 + 1 == 2, "Should be 2"
 
